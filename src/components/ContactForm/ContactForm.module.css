@@ -1,0 +1,12 @@
+.container {
+	width: 500px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
+
+.Error {
+	color: red;
+}
