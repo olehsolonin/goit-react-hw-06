@@ -1,9 +1,27 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-const initialState = 5;
+const initialState = {
+	balance: {
+		value: 999,
+	}
+};
 
 const rootReducer = (state = initialState, action) => {
-	return state;
+
+	switch (action.type) {
+		case "balance/deposit":
+			return {
+				balance: {
+					value: state.balance.value + action.payload,
+				}
+			};
+
+		default:
+			return state;
+	}
+
+
+
 };
 
 export const store = configureStore({
