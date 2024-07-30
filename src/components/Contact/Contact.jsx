@@ -2,14 +2,19 @@ import css from './Contact.module.css';
 import { IoPerson } from 'react-icons/io5';
 import { FaPhone } from 'react-icons/fa6';
 import { useDispatch, useSelector } from 'react-redux';
+import { deposite } from '../../redux/store';
 
 export default function Contact({ data: { id, name, number } }) {
   const dispatch = useDispatch();
   const credits = useSelector(state => state.balance.value);
 
   const handleDeposite = () => {
+    dispatch(deposite(40));
+  };
+
+  const handleWithdraw = () => {
     dispatch({
-      type: 'balance/deposit',
+      type: 'balance/withdraw',
       payload: 10,
     });
   };
@@ -30,6 +35,7 @@ export default function Contact({ data: { id, name, number } }) {
       <button className={css.btn} onClick={handleDeposite}>
         Delete
       </button>
+      <button onClick={handleWithdraw}>withdraw</button>
     </div>
   );
 }
