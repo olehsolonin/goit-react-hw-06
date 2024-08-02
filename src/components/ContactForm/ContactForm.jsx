@@ -1,4 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { addContact } from '../../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactForm.module.css';
 import * as Yup from 'yup';
 import { number } from 'yup';
@@ -15,15 +17,21 @@ const FeedbackSchema = Yup.object().shape({
     .required('Required'),
 });
 
-export default function ContactForm({ onAdd }) {
+export default function ContactForm() {
+  const contactState = useSelector(state => state.contacts.items);
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, actions) => {
     console.log('handleSubmit', values.name, values.number);
-    onAdd({
-      id: Date.now(),
-      name: values.name,
-      number: values.number,
-    });
-    console.log(onAdd);
+
+    dispatch(
+      addContact({
+        id: Date.now(),
+        name: values.name,
+        number: values.number,
+      })
+    );
+    console.log(addContact);
     actions.resetForm();
   };
 

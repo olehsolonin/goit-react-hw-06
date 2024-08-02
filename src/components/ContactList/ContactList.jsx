@@ -1,21 +1,14 @@
 import Contact from '../Contact/Contact';
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { deleteContact } from '../../redux/store';
 
 export default function ContactList() {
   const contactState = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();
-  //   console.log(contactState);
-
-  const deleteContact = contactId => {
-    return {
-      type: 'contacts/deleteContact',
-      payload: contactId,
-    };
-  };
 
   const handleDelete = contactId => {
-    console.log(contactId);
+    //  console.log(contactId);
     dispatch(deleteContact(contactId));
   };
 

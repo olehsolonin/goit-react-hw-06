@@ -61,7 +61,7 @@ export default function App() {
   return (
     <div className={css.appContainer}>
       <h1 className={css.mainTitle}>Phonebook</h1>
-      <ContactForm onAdd={addTask} />
+      <ContactForm />
       <SearchBox onFilter={onFilter} />
       <ContactList />
     </div>

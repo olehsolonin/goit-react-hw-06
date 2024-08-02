@@ -1,5 +1,24 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+
+export const deleteContact = contactId => {
+	return {
+		type: 'contacts/deleteContact',
+		payload: contactId,
+	};
+};
+
+export const addContact = newContact => {
+	return {
+		type: 'contacts/addContact',
+		payload: {
+			id: newContact.id,
+			name: newContact.name,
+			number: newContact.number
+		}
+	};
+};
+
 const initialState = {
 	contacts: {
 		items: [{ id: 'id-1', name: 'Billy Herrington', number: '459-12-56' },
@@ -14,7 +33,37 @@ const initialState = {
 	;
 
 const rootReducer = (state = initialState, action) => {
-	return state;
+
+	switch (action.type) {
+
+		case "contacts/deleteContact":
+			return {
+				...state,
+				contacts: {
+					...state,
+					items: state.contacts.items.filter(item => {
+						return (item.id !== action.payload)
+					}),
+				}
+
+			};
+
+		case "contacts/addContact":
+			return {
+				...state,
+				contacts: {
+					...state,
+					items: state.contacts.items + action.payload
+				}
+
+			};
+
+
+
+		default:
+			return state;
+	}
+
 };
 
 export const store = configureStore({
