@@ -3,7 +3,7 @@ import { IoPerson } from 'react-icons/io5';
 import { FaPhone } from 'react-icons/fa6';
 // import { useDispatch, useSelector } from 'react-redux';
 
-export default function Contact({ data } = data, { onDelete }) {
+export default function Contact({ data, onDelete }) {
   //   console.log(data.id);
 
   return (
