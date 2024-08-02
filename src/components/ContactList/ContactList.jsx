@@ -2,11 +2,9 @@ import Contact from '../Contact/Contact';
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 
-const dispatch = useDispatch();
-
 export default function ContactList() {
   const contactState = useSelector(state => state.contacts.items);
-
+  const dispatch = useDispatch();
   //   console.log(contactState);
 
   const deleteContact = contactId => {
