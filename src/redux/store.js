@@ -1,64 +1,23 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 const initialState = {
-	balance: {
-		value: 999,
+	contacts: {
+		items: [{ id: 'id-1', name: 'Billy Herrington', number: '459-12-56' },
+		{ id: 'id-2', name: 'Ryan Gosling', number: '443-89-12' },
+		{ id: 'id-3', name: 'Ricardo Milos', number: '645-17-79' },
+		{ id: 'id-4', name: 'Antonio Banderas', number: '227-91-26' },]
+	},
+	filters: {
+		name: ""
 	}
-};
-
-export const deposite = (value) => {
-	return ({
-		type: 'balance/deposit',
-		payload: value,
-	});
-};
-
-const balanceReducer = (state = { value: 999 }, action) => {
-	switch (action.type) {
-		case "balance/deposit":
-			return {
-				value: state.value + action.payload,
-
-			}
-		case "balance/withdraw":
-			return {
-				value: state.value - action.payload,
-
-			}
-
-		default:
-			return state;
-	}
-};
-
+}
+	;
 
 const rootReducer = (state = initialState, action) => {
-
-	switch (action.type) {
-		case "balance/deposit":
-			return {
-				...state,
-				balance: {
-					value: state.balance.value + action.payload,
-				}
-			};
-
-		case 'balance/withdraw':
-			return ({
-				...state,
-				balance: {
-					value: state.balance.value - action.payload,
-				}
-			});
-
-		default:
-			return state;
-	}
-
-
-
+	return state;
 };
 
 export const store = configureStore({
-	reducer: rootReducer
+	reducer: rootReducer,
 });
+
