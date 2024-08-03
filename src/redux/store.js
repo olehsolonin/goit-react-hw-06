@@ -46,7 +46,7 @@ const rootReducer = (state = initialState, action) => {
 			return {
 				...state,
 				contacts: {
-					...state,
+					...state.contacts,
 					items: state.contacts.items.filter(item => {
 						return (item.id !== action.payload)
 					}),
@@ -58,9 +58,9 @@ const rootReducer = (state = initialState, action) => {
 			return {
 				...state,
 				contacts: {
-					items: state.contacts.items.push(action.payload)
+					...state.contacts,
+					items: [...state.contacts.items, action.payload]
 				}
-
 			};
 
 
