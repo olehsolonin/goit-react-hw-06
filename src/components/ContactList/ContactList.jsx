@@ -5,6 +5,7 @@ import { deleteContact } from '../../redux/store';
 
 export default function ContactList() {
   const contactState = useSelector(state => state.contacts.items);
+  const filtersState = useSelector(state => state.filters.name);
   const dispatch = useDispatch();
 
   const handleDelete = contactId => {
@@ -12,9 +13,13 @@ export default function ContactList() {
     dispatch(deleteContact(contactId));
   };
 
+  const visibleContacts = contactState.filter(item =>
+    item.name.toLowerCase().includes(filtersState.toLowerCase())
+  );
+
   return (
     <ul className={css.list}>
-      {contactState.map(contact => (
+      {visibleContacts.map(contact => (
         <li className={css.item} key={contact.id}>
           <Contact data={contact} onDelete={handleDelete} />
         </li>

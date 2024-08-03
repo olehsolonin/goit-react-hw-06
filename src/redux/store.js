@@ -9,12 +9,12 @@ export const deleteContact = contactId => {
 };
 
 export const addContact = newContact => {
-	console.log(typeof newContact);
+	console.log(newContact);
 	const { id, name, number } = newContact
 
-	console.log(id);
-	console.log(name);
-	console.log(number);
+	// console.log(id);
+	// console.log(name);
+	// console.log(number);
 	return {
 		type: 'contacts/addContact',
 		payload: {
@@ -24,6 +24,15 @@ export const addContact = newContact => {
 		}
 	};
 };
+
+export const setFilter = (filterValue) => {
+	console.log(filterValue);
+
+	return {
+		type: 'filters/setFilter',
+		payload: filterValue
+	}
+}
 
 const initialState = {
 	contacts: {
@@ -60,6 +69,15 @@ const rootReducer = (state = initialState, action) => {
 				contacts: {
 					...state.contacts,
 					items: [...state.contacts.items, action.payload]
+				}
+			};
+
+		case 'filters/setFilter':
+			return {
+				...state,
+				filters: {
+					...state.filters,
+					name: action.payload
 				}
 			};
 
