@@ -9,12 +9,18 @@ export const deleteContact = contactId => {
 };
 
 export const addContact = newContact => {
+	console.log(typeof newContact);
+	const { id, name, number } = newContact
+
+	console.log(id);
+	console.log(name);
+	console.log(number);
 	return {
 		type: 'contacts/addContact',
 		payload: {
-			id: newContact.id,
-			name: newContact.name,
-			number: newContact.number
+			id: id,
+			name: name,
+			number: number
 		}
 	};
 };
@@ -52,8 +58,7 @@ const rootReducer = (state = initialState, action) => {
 			return {
 				...state,
 				contacts: {
-					...state,
-					items: state.contacts.items + action.payload
+					items: state.contacts.items.push(action.payload)
 				}
 
 			};
