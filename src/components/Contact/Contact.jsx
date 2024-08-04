@@ -1,7 +1,6 @@
 import css from './Contact.module.css';
 import { IoPerson } from 'react-icons/io5';
 import { FaPhone } from 'react-icons/fa6';
-// import { useDispatch, useSelector } from 'react-redux';
 
 export default function Contact({ data, onDelete }) {
   //   console.log(data.id);

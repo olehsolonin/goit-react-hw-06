@@ -13,10 +13,6 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 
-// const contactsPersistConfig = {
-// 	key: 'contacts',
-// 	storage,
-// }
 
 const persistedContactsReducer = persistReducer({
 	key: 'contacts',
