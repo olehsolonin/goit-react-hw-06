@@ -1,12 +1,13 @@
 .container {
 	border: 1px solid black;
-	border-radius: 4px;
-	padding: 4px;
+	border-radius: 6px;
+	padding: 6px 16px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 100px;
 	margin: 0 auto;
+	height: 100px;
  }
 
  .wrap {
@@ -21,5 +22,11 @@
 
  .icon {
 margin: 0 10px;
+ }
+
+ .btn {
+	color: whitesmoke;
+	background-color: red;
+	border-radius: 4px;
  }
  

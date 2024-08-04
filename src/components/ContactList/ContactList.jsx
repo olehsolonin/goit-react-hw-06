@@ -1,11 +1,12 @@
 import Contact from '../Contact/Contact';
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from '../../redux/store';
+import { deleteContact, selectContacts } from '../../redux/contactsSlice';
+import { selectFilter } from '../../redux/filtersSlice';
 
 export default function ContactList() {
-  const contactState = useSelector(state => state.contacts.items);
-  const filtersState = useSelector(state => state.filters.name);
+  const contactState = useSelector(selectContacts);
+  const filtersState = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   const handleDelete = contactId => {

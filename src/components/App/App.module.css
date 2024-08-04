@@ -32,4 +32,6 @@ body {
  .mainTitle {
 	margin: 0 auto;
 	margin-bottom: 20px;
+	margin-top: 20px;
+	text-align: center;
  }
